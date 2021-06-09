@@ -11,12 +11,13 @@ class ListContactsWidget extends StatelessWidget {
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: listContacts
-                .map((contact) => ContactTileWidget(contactModel: contact))
-                .toList()),
+        child: SingleChildScrollView(
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: listContacts
+                  .map((contact) => ContactTileWidget(contactModel: contact))
+                  .toList()),
+        ),
       ),
     );
   }

@@ -6,18 +6,21 @@ class ContactTileWidget extends StatelessWidget {
   ContactTileWidget({required this.contactModel});
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: BorderSide(color: Theme.of(context).primaryColor, width: 2),
-      ),
-      child: ListTile(
-        title: Text(contactModel.name),
-        subtitle: Text(contactModel.email),
-        trailing: Icon(Icons.open_in_new),
-        leading: CircleAvatar(
-          radius: 30,
-          foregroundImage: AssetImage(contactModel.photo),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: BorderSide(color: Theme.of(context).primaryColor, width: 2),
+        ),
+        child: ListTile(
+          title: Text(contactModel.name),
+          subtitle: Text(contactModel.email),
+          trailing: Icon(Icons.open_in_new),
+          leading: CircleAvatar(
+            radius: 20,
+            foregroundImage: NetworkImage(contactModel.photo),
+          ),
         ),
       ),
     );
