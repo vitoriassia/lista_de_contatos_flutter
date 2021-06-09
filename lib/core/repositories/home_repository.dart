@@ -1,30 +1,16 @@
-import 'package:interview_gigaservice_flutter/shared/enums.dart';
+import 'package:interview_gigaservice_flutter/core/services/api.dart';
+import 'package:interview_gigaservice_flutter/core/services/locator.dart';
 import 'package:interview_gigaservice_flutter/shared/models/contact_model.dart';
 
 class HomeRepository {
+  final Api _api = locator<Api>();
   Future<List<ContactModel>> getContacts() async {
-    await Future.delayed(Duration(seconds: 2));
-    return [
-      ContactModel(
-          name: 'Mark Zuckerberg',
-          photo: 'assets/mark.jpg',
-          email: 'CEO Facebook',
-          gender: Gender.male),
-      ContactModel(
-          name: "Bill Gates",
-          photo: "assets/bill-gates.jpg",
-          gender: Gender.male,
-          email: "CEO Microsoft"),
-      ContactModel(
-          name: "Elon Musk",
-          photo: "assets/elon.jpg",
-          email: "CEO Tesla",
-          gender: Gender.male),
-      ContactModel(
-          name: "Steve Jobs",
-          photo: "assets/steve.jpg",
-          email: "CEO Apple",
-          gender: Gender.male),
-    ];
+    var response = await _api.getDataFrom(
+        "?format=json&results=15&page=2&inc=gender,name,email,picture&nat=br");
+
+    List<ContactModel> newList = response.data["results"]
+        .map<ContactModel>((contact) => ContactModel.fromJson(contact))
+        .toList();
+    return newList;
   }
 }
