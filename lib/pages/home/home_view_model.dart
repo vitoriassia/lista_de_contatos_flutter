@@ -13,10 +13,35 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  addMoreItemsContects(List<ContactModel> newList) {
+    _listContacts.addAll(newList);
+    notifyListeners();
+  }
+
+  bool _loadingMore = false;
+  bool get loadingMore => _loadingMore;
+  setLoadingMoreState(bool newState) {
+    _loadingMore = newState;
+    notifyListeners();
+  }
+
+  int pageListRoom = 1;
+
   Future<void> getContacts() async {
     setState(ViewState.busy);
     List<ContactModel> newList = await _homeRepository.getContacts();
     setListContacts(newList);
     setState(ViewState.idle);
+  }
+
+  Future<void> getMoreContacts() async {
+    setLoadingMoreState(true);
+
+    List<ContactModel> newList =
+        await _homeRepository.getContacts(page: pageListRoom);
+    pageListRoom++;
+    addMoreItemsContects(newList);
+
+    setLoadingMoreState(false);
   }
 }
