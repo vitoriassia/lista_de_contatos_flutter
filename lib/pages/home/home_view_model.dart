@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:interview_gigaservice_flutter/core/repositories/home_repository.dart';
 import 'package:interview_gigaservice_flutter/pages/base_view_model.dart';
 import 'package:interview_gigaservice_flutter/pages/home/widgets/filter_for_gender/filter_for_gender_model.dart';
