@@ -22,11 +22,16 @@ class Api {
       return handler!.next(options);
     }));
 
-    dio.interceptors.add(InterceptorsWrapper(
-        onError: (DioError? e, ErrorInterceptorHandler? handler) async {
-      print(e!.response!.data);
-      return handler!.resolve(e.response!); //continue
-    }));
+    dio.interceptors.add(
+      InterceptorsWrapper(
+          onError: (DioError? e, ErrorInterceptorHandler? handler) async {
+        print("Deu erro aqui");
+        if (e != null && e.response != null) {
+          print(e.response!.data);
+        }
+        return handler!.resolve(e!.response!); //continue
+      }),
+    );
   }
 
   Future<Response> postDataTo(String endpoint, data) async {

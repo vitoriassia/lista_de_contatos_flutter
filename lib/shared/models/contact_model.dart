@@ -15,7 +15,7 @@ class ContactModel {
 
   factory ContactModel.fromJson(Map<String, dynamic> json) => ContactModel(
       name: json["name"]["first"] + " " + json["name"]["last"],
-      photo: json["picture"]["medium"],
+      photo: json["picture"]["large"],
       email: json["email"],
       gender: genderStringToEnum(json["gender"]));
 }

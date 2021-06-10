@@ -18,9 +18,10 @@ class ScaleRoute extends PageRouteBuilder {
             Widget child,
           ) =>
               SlideTransition(
-            position: animation.drive(
-                Tween(begin: Offset(0.0, 1.0), end: Offset.zero)
-                    .chain(CurveTween(curve: Curves.ease))),
+            position: animation.drive(Tween<Offset>(
+              begin: const Offset(-0.5, 0.0),
+              end: const Offset(0.0, 0.0),
+            ).chain(CurveTween(curve: Curves.ease))),
             child: child,
           ),
         );
