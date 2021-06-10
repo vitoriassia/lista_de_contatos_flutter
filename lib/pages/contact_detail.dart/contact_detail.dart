@@ -3,7 +3,7 @@ import 'package:interview_gigaservice_flutter/pages/contact_detail.dart/email_ca
 import 'package:interview_gigaservice_flutter/pages/contact_detail.dart/gender_indicator.dart';
 import 'package:interview_gigaservice_flutter/shared/enums.dart';
 import 'package:interview_gigaservice_flutter/shared/models/contact_model.dart';
-import 'package:interview_gigaservice_flutter/shared/utils/getColorAccordingGender.dart';
+import 'package:interview_gigaservice_flutter/shared/utils/get_color_according_gender.dart';
 
 class ContactDetailPage extends StatelessWidget {
   final ContactModel contactModel;

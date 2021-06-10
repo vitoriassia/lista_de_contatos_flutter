@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_gigaservice_flutter/shared/enums.dart';
-import 'package:interview_gigaservice_flutter/shared/utils/getColorAccordingGender.dart';
+import 'package:interview_gigaservice_flutter/shared/utils/get_color_according_gender.dart';
 
 class EmailCard extends StatelessWidget {
   final Gender gender;

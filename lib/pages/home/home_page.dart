@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                             )
                           : Container(
                               child: Text(
-                                "Não há contatos cadastrados",
+                                "Nenhum contato encontrado",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20),
                               ),
