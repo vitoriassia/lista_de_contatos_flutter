@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interview_gigaservice_flutter/pages/home/home_view_model.dart';
+import 'package:interview_gigaservice_flutter/pages/home/widgets/filter_for_gender/head_filter.dart';
 import 'package:interview_gigaservice_flutter/pages/home/widgets/filter_for_gender/switch_list_tile_gender_filter.dart';
 import 'package:interview_gigaservice_flutter/shared/sharedWidgets/sweet_button.dart';
 import 'package:interview_gigaservice_flutter/shared/utils/flash.dart';
@@ -16,6 +17,7 @@ class FilterForGenderDialog extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
+          HeadFilter(),
           Expanded(child: SwitchListTileParticipants(homeViewModel)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +32,7 @@ class FilterForGenderDialog extends StatelessWidget {
                       showError(
                           context: context,
                           text:
-                              "Por favor, selecione pelo menos um dos generos.");
+                              "Por favor, selecione pelo menos um dos gêneros.");
                     }
                   },
                   text: 'Confirmar',
